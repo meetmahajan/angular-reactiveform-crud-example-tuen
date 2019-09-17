@@ -1,0 +1,22 @@
+<form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+	<div class="card m-3">
+		<h5 class="card-header">Angular 8 Dynamic Reactive Forms Example</h5>
+		<div class="card-body">
+			<div class="form-row">
+				<div class="form-group">
+					<label>Number of Tickets</label>
+          <select formControlName="numberOfTickets" class="form-control" (change)="onChangeTickets($event)" [ngClass]="{ 'is-invalid': submitted && f.numberOfTickets.errors }">
+            <option value="" [selected]=true >Select number of tickets</option>
+            <option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">{{i}}</option>
+          </select>
+          <div *ngIf="submitted && controls.numberOfTickets.errors" class="invalid-feedback">
+            <div *ngIf="f.numberOfTickets.errors.required">Number of tickets is required</div>
+          </div>
+				</div>
+			</div>
+		</div>
+    <div *ngFor="let ticket of ticketArray.controls; let i=index">
+      {{i+1}}
+    </div>
+	</div>
+</form>
