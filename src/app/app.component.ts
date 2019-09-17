@@ -18,4 +18,11 @@ export class AppComponent {
       tickets: new FormArray([])
     })
   }
+  get controls() {
+    return this.dynamicForm.controls;
+  }
+  get ticketArray() {
+    return this.controls.tickets as FormArray;
+  }
+
 }
