@@ -44,6 +44,8 @@ export class AppComponent {
     this.submitted = true;
     // stop here if form is invalid
     if (this.dynamicForm.invalid) {
+      // console.log(this.submitted);
+      this.submitted = false;
       return;
     }
     // display form values on success
